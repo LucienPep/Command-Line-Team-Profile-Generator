@@ -1,0 +1,22 @@
+{
+  "name": "week-10-homework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucienPep/Command-Line-Team-Profile-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucienPep/Command-Line-Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/LucienPep/Command-Line-Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
