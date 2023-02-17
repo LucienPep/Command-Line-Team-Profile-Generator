@@ -6,6 +6,12 @@ const Intern = require("./lib/Intern");
 var managerStatus = ''
 var engineerStatus = ''
 var internStatus = ''
+var manDetails = ''
+var engDetails = ''
+var intDetails = ''
+var engineerTotal = 0
+var internTotal = 0
+var people = []
 
 const employeeQuestions = {
     name: 'Name - ',
@@ -55,7 +61,7 @@ function employee(){
             ])
             .then((office) => {
                 const managerDetails = {...employeeResponse, ...office}
-                const officeDetails = new Manager(managerDetails.name, managerDetails.id, managerDetails.email, managerDetails.office)
+                manDetails = new Manager(managerDetails.name, managerDetails.id, managerDetails.email, managerDetails.office)
                 newEmployee()
             })
         }
@@ -72,7 +78,7 @@ function employee(){
             ])
             .then((github) => {
                 const engineerDetails = {...employeeResponse, ...github}
-                const githubDetails = new Engineer(engineerDetails)
+                people.push(new Engineer(engineerDetails.name, engineerDetails.id, engineerDetails.email, engineerDetails.github))
                 newEmployee()
             })
         }
@@ -89,7 +95,8 @@ function employee(){
             ])
             .then((school) => {
                 const internDetails = {...employeeResponse, ...school}
-                const githubDetails = new Intern(internDetails)
+                people.push(new Intern(internDetails.name, internDetails.id, internDetails.email, internDetails.school))
+
                 newEmployee()
             })
         }
@@ -115,9 +122,18 @@ function newEmployee() {
             internStatus = true
             employee()
         }
+        if(response.member == 'No More Members to Add'){
+            final()
+        }
     })
 }
 
+function final(){
+    console.log(manDetails)
+    console.log(people)
+    
+    //console.log(intDetails)
+}
 
 
 
