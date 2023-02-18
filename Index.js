@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+var fs = require('fs');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -7,11 +8,7 @@ var managerStatus = ''
 var engineerStatus = ''
 var internStatus = ''
 var manDetails = ''
-var engDetails = ''
-var intDetails = ''
-var engineerTotal = 0
-var internTotal = 0
-var people = []
+var employees = []
 
 const employeeQuestions = {
     name: 'Name - ',
@@ -78,7 +75,7 @@ function employee(){
             ])
             .then((github) => {
                 const engineerDetails = {...employeeResponse, ...github}
-                people.push(new Engineer(engineerDetails.name, engineerDetails.id, engineerDetails.email, engineerDetails.github))
+                employees.push(new Engineer(engineerDetails.name, engineerDetails.id, engineerDetails.email, engineerDetails.github))
                 newEmployee()
             })
         }
@@ -95,7 +92,7 @@ function employee(){
             ])
             .then((school) => {
                 const internDetails = {...employeeResponse, ...school}
-                people.push(new Intern(internDetails.name, internDetails.id, internDetails.email, internDetails.school))
+                employees.push(new Intern(internDetails.name, internDetails.id, internDetails.email, internDetails.school))
 
                 newEmployee()
             })
@@ -129,8 +126,28 @@ function newEmployee() {
 }
 
 function final(){
-    console.log(manDetails)
-    console.log(people)
+    //console.log(manDetails)
+    //console.log(employees)
+    var htmlContent = `<!doctype html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <title>Team Profile</title>
+            <link rel="stylesheet" href="./style.css" />
+        </head>
+        <body>
+            <header>
+                <h1>Team Profile</h1>
+            </header>
+            <div class = box></div>
+        </body>
+    </html>`;
+
+    fs.writeFile('./dist/Team.html', htmlContent, (err) => { 
+        if(err){
+            console.log(err)
+        } 
+    });
     
     //console.log(intDetails)
 }
