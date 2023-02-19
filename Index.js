@@ -117,7 +117,7 @@ function newEmployee() {
         {
             type: 'list',
             message: 'Add Team Member',
-            choices: ['Engineer', 'Intern', 'No More Members to Add'],
+            choices: ['Engineer', 'Intern', 'Finish Building Team'],
             name: 'member',
         }
     ])
@@ -130,7 +130,7 @@ function newEmployee() {
             internStatus = true
             employee()
         }
-        if(response.member == 'No More Members to Add'){
+        if(response.member == 'Finish Building Team'){
             final()
         }
     })
@@ -162,8 +162,6 @@ function final(){
             console.log(err)
         } 
     });
-    
-    //console.log(intDetails)
 }
 
 
