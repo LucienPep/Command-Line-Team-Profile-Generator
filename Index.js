@@ -7,8 +7,8 @@ const Intern = require("./lib/Intern");
 var managerStatus = ''
 var engineerStatus = ''
 var internStatus = ''
-var manDetails = ''
 var employees = []
+var html = []
 
 const employeeQuestions = {
     name: 'Name - ',
@@ -58,7 +58,11 @@ function employee(){
             ])
             .then((office) => {
                 const managerDetails = {...employeeResponse, ...office}
-                manDetails = new Manager(managerDetails.name, managerDetails.id, managerDetails.email, managerDetails.office)
+                let managerSubmit = new Manager(managerDetails.name, managerDetails.id, managerDetails.email, managerDetails.office)
+                employees.push(managerSubmit)
+
+                html.push(managerSubmit.html())
+
                 newEmployee()
             })
         }
@@ -75,7 +79,11 @@ function employee(){
             ])
             .then((github) => {
                 const engineerDetails = {...employeeResponse, ...github}
-                employees.push(new Engineer(engineerDetails.name, engineerDetails.id, engineerDetails.email, engineerDetails.github))
+                let engineerSubmit =(new Engineer(engineerDetails.name, engineerDetails.id, engineerDetails.email, engineerDetails.github))
+                employees.push(engineerSubmit)
+
+                html.push(engineerSubmit.html())
+
                 newEmployee()
             })
         }
@@ -92,7 +100,10 @@ function employee(){
             ])
             .then((school) => {
                 const internDetails = {...employeeResponse, ...school}
-                employees.push(new Intern(internDetails.name, internDetails.id, internDetails.email, internDetails.school))
+                let internSubmit = (new Intern(internDetails.name, internDetails.id, internDetails.email, internDetails.school))
+                employees.push(internSubmit)
+
+                html.push(internSubmit.html())
 
                 newEmployee()
             })
@@ -126,6 +137,7 @@ function newEmployee() {
 }
 
 function final(){
+    //console.log(html.join(''))
     //console.log(manDetails)
     //console.log(employees)
     var htmlContent = `<!doctype html>
@@ -139,11 +151,13 @@ function final(){
             <header>
                 <h1>Team Profile</h1>
             </header>
-            <div class = box></div>
+            <div class = box> 
+                ${html.join('')}
+            </div>
         </body>
     </html>`;
 
-    fs.writeFile('./dist/Team.html', htmlContent, (err) => { 
+    fs.writeFile('./dist/team.html', htmlContent, (err) => { 
         if(err){
             console.log(err)
         } 

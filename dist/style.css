@@ -39,7 +39,7 @@ h1 {
 
 .employee {
     width: 250px;
-    height: 300px;
+    height: 50%;
     background-color: #f2f2e5;
     margin: 10px;
 }
@@ -55,6 +55,7 @@ h1 {
 
 .inputBox {
     margin: 10% 0;
+    overflow-wrap: break-word;
 }
 
 .inputBox div {
@@ -65,4 +66,17 @@ h1 {
     padding: 10px;
     margin: 10px 10px;
     border: 2px #c3c9a7 solid;
+}
+
+a {
+    color: #98a695;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #8f6b43;
+}
+
+a:active {
+    color: #98a695;
 }
