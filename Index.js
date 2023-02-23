@@ -165,7 +165,7 @@ function final(){
         </body>
     </html>`;
 
-    fs.writeFile('./dist/team.html', htmlContent, (err) => { 
+    fs.writeFile('./dist/newteam.html', htmlContent, (err) => { 
         if(err){
             console.log(err)
         } 
