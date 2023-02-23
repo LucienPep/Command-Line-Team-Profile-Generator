@@ -50,11 +50,11 @@ THEN I exit the application, and the HTML is generated
 I first started by using inquirer prompts to ask about the manager details and extended that function to add engineer and intern details. I then created the classes the data from the inquirer prompt would be inputted too and created the HTML input. Next I created teh HTML document mock up and created the styling to look as intended and then wrote the function when the user was finished adding data the HTML would be over written and a new one generated with the data from all the user selected inputs. I then adding testing to check that all the class functions were working as intended and passed the data correctly. I finished by adding links to emails and github profiles in the HTML.
 
 ## Link to Tutorial Video
-[Tutorial Video for README generator](https://drive.google.com/file/d/1-Vn89V1bIode-9_NfcontEMCew8dHPbT/view?usp=sharing)
+[Tutorial Video](https://drive.google.com/file/d/1-Vn89V1bIode-9_NfcontEMCew8dHPbT/view?usp=sharing)
 
 ### Screenshot
 
-![Project README Generator](./Assets/Screenshot%2010.png)
+![Command Line Team Profile Generator](./Assets/Screenshot%2010.png)
  
 ### Installation
 
