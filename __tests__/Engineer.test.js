@@ -1,5 +1,5 @@
 const Engineer = require("../lib/Engineer");
-
+//test if engineer is collecting input data and returning correctly
 describe('Engineer', () => {
     describe('getRole', () => {
         it('should log inputed data as an array with github', () => {

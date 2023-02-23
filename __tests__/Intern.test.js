@@ -1,5 +1,5 @@
 const Intern = require("../lib/Intern");
-
+//test if intern is collecting input data and returning correctly
 describe('Intern', () => {
     describe('getRole', () => {
         it('should log inputed data as an array with school', () => {

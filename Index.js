@@ -1,21 +1,25 @@
+//Requiring needed pages and npm methods
 const inquirer = require('inquirer');
 var fs = require('fs');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
+//declaring variables
 var managerStatus = ''
 var engineerStatus = ''
 var internStatus = ''
 var employees = []
 var html = []
 
+//declares employee questions all inputs will use
 const employeeQuestions = {
     name: 'Name - ',
     id: 'Employee ID - ',
     email: 'Email - ', 
 }
 
+//first function turns manager var to true and asks user to add manager details
 function manager(){
     console.log('Add Manager Details')
 
@@ -24,6 +28,7 @@ function manager(){
     employee() 
 }
 
+//starts by asking the employee questions all catagories use
 function employee(){
     inquirer
     .prompt([
@@ -43,6 +48,7 @@ function employee(){
             name: 'email',
         },
     ])
+    //then checks for true on any choice and asks users questions from that choice. then makes choice variable false for next use
     .then((response) => {
         var employeeResponse = response 
         if(managerStatus == true){
@@ -111,6 +117,7 @@ function employee(){
     })
 }
 
+//select next employee and turn variable value to true or finish selection
 function newEmployee() {
     inquirer
     .prompt([
@@ -136,6 +143,7 @@ function newEmployee() {
     })
 }
 
+// create HTML document and add data from employee selections.
 function final(){
     //console.log(html.join(''))
     //console.log(manDetails)
@@ -163,10 +171,5 @@ function final(){
         } 
     });
 }
-
-
-
-
-
-
+//start code with manager function
 manager()

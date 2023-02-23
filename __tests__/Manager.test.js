@@ -1,5 +1,5 @@
 const Manager = require("../lib/Manager");
-
+//test if manager is collecting input data and returning correctly
 describe('Manager', () => {
     describe('getRole', () => {
         it('should log inputed data as an array with office', () => {
